@@ -21,6 +21,7 @@ app.use(logger("dev")); // This logs HTTP reponses in the console.
 app.use(express.json()); // Access data sent as json @req.body
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session({ secret: 'somevalue' }));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(
@@ -47,11 +48,11 @@ const authRouter = require("./routes/auth");
 app.use("/api/auth", authRouter);
 
 // 404 Middleware
-app.use((req, res, next) => {
-  const error = new Error("Ressource not found.");
-  error.status = 404;
-  next(err);
-});
+//app.use((req, res, next) => {
+  //const error = new Error("Ressource not found.");
+  //error.status = 404;
+  //next(err);
+//});
 
 // Error handler middleware
 // If you pass an argument to your next function in any of your routes or middlewares
