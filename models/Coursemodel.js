@@ -6,9 +6,14 @@ const courseSchema = new Schema(
         name:String,
         description: String,
         category: String,
+        userID: {
+            type: Schema.Types.ObjectId,
+      ref: "User",
+        }
         
         
     },
+
     {
         timestamps: true
     }
@@ -17,4 +22,4 @@ const courseSchema = new Schema(
 
     const courseModelVariable = mongoose.model('Course', courseSchema);
 
-    module.exports = model('Course', courseSchema );
+    module.exports = courseModelVariable;

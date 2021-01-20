@@ -14,7 +14,7 @@ const cors = require("cors");
 /**
  * Middlewares
  */
-const corsOptions = { origin: process.env.FRONTEND_URL, credentials: true };
+const corsOptions = { origin: process.env.CLIENT_URL, credentials: true };
 
 app.use(cors(corsOptions));
 app.use(logger("dev")); // This logs HTTP reponses in the console.
@@ -44,8 +44,10 @@ app.use(function (req, res, next) {
  */
 
 const authRouter = require("./routes/auth");
+const courseRouter = require("./routes/course");
 
 app.use("/api/auth", authRouter);
+app.use("/api/course", courseRouter);
 
 // 404 Middleware
 //app.use((req, res, next) => {

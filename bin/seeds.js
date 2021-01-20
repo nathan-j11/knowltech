@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 const Course = require('../models/Coursemodel');
 
-const DB_NAME = 'elearning-project';
+// //const DB_NAME = 'elearning-project';
 
-mongoose.connect(`mongodb://localhost/${DB_NAME}`, {
-  useCreateIndex: true,
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-});
+// //mongoose.connect(`mongodb://localhost/${DB_NAME}`, {
+//   useCreateIndex: true,
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true
+// });
 
 const courses = [
     {

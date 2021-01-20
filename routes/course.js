@@ -15,6 +15,18 @@ router.get("/", (req, res, next) => {
     });
 });
 
+// http://localhost:4000/api/courses
+router.post("/", (req, res, next) => {
+  // Create a course
+  Coursemodel.create(req.body)
+    .then((courseDocument) => {
+      res.status(201).json(courseDocument);
+    })
+    .catch((error) => {
+      next(error);
+    });
+});
+
 // http://localhost:4000/api/courses/{some-id}
 router.get("/:id", (req, res, next) => {
   //Get one specific course
@@ -40,17 +52,7 @@ router.patch("/:id", (req, res, next) => {
     });
 });
 
-// http://localhost:4000/api/burgers
-router.post("/", (req, res, next) => {
-  // Create a course
-  Coursemodel.create(req.body)
-    .then((courseDocument) => {
-      res.status(201).json(courseDocument);
-    })
-    .catch((error) => {
-      next(error);
-    });
-});
+
 
 // http://localhost:4000/api/courses/{some-id}
 router.delete("/:id", (req, res, next) => {
